@@ -3,7 +3,7 @@ package functionalProgrammingScala
 import scala.annotation.tailrec
 
 object HighOrderFunctions:
-  private def factorial(n: Int): Int =
+  def factorial(n: Int): Int =
     @tailrec
     def go(n: Int, acc: Int): Int =
       if n <= 0 then acc
