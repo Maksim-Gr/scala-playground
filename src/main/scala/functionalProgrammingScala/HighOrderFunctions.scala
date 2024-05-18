@@ -39,6 +39,10 @@ object HighOrderFunctions:
       else loop(n+1)
     loop(0)
 
+  private def partial[A,B,C] (a: A, f: (A,B) => C):B => C =
+    ///??? is the name of a built-in Scala function that simply throws a NotImplementedError.
+    (b: B) => f(a, b)
+
   @main def printFibAndFactorial(): Unit =
     println(factorial(23))
     println(fib(123))
