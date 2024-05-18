@@ -29,8 +29,20 @@ object HighOrderFunctions:
       else loop(n + 1)
     loop(0)
 
+  private def isSorted[A](as: Array[A], gt: (A,A) => Boolean): Boolean =
+    @tailrec
+    def loop(n: Int): Boolean =
+      if n + 1 >= as.length then true
+      //gt function with the nth and nth + 1 elements of the array, returning false
+      //f the nth element is greater than the nth + 1 element
+      else if gt(as(n), as(n+1)) then false
+      else loop(n+1)
+    loop(0)
+
   @main def printFibAndFactorial(): Unit =
     println(factorial(23))
     println(fib(123))
     // The syntax (x: Int) => x == 9 is a function literal, or anonymous function.
     println(findFirst(Array(2, 4, 43, 55), (x:Int) => x == 9))
+
+    println(isSorted(Array(1,3,4,5), _ > _))
