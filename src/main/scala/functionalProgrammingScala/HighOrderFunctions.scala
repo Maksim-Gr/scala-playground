@@ -21,7 +21,7 @@ object HighOrderFunctions:
     go(n, 0, 1)
 
   //Example of polymorphic functions
-  def findFirst[A](as: Array[A], p:A => Boolean): Int =
+  private def findFirst[A](as: Array[A], p:A => Boolean): Int =
     @tailrec
     def loop(n: Int): Int =
       if n >= as.length then -1
@@ -32,3 +32,5 @@ object HighOrderFunctions:
   @main def printFibAndFactorial(): Unit =
     println(factorial(23))
     println(fib(123))
+    // The syntax (x: Int) => x == 9 is a function literal, or anonymous function.
+    println(findFirst(Array(2, 4, 43, 55), (x:Int) => x == 9))
