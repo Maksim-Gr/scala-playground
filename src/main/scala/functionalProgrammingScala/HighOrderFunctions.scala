@@ -21,11 +21,11 @@ object HighOrderFunctions:
     go(n, 0, 1)
 
   //Example of polymorphic functions
-  def findFirst(ss: Array[String], key: String): Int =
+  def findFirst[A](as: Array[A], p:A => Boolean): Int =
     @tailrec
     def loop(n: Int): Int =
-      if n >= ss.length then -1
-      else if ss(n) == key then n
+      if n >= as.length then -1
+      else if p(as(n))  then n
       else loop(n + 1)
     loop(0)
 
