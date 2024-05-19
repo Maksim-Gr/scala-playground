@@ -19,4 +19,15 @@ object FunctionalDataStructures {
       case Nil => 1.0
       case Cons(0.0, _) => 0.0
       case Cons(x, xs) => x * product(xs)
+
+
+    val result = List(5, 10, 3,4, 5, 6) match
+      case Cons(x, Cons(2, Cons(4, _))) => x
+      case Nil => 42
+      case Cons(x, Cons(y, Cons(3, Cons(4, _)))) => x + y
+      case Cons(h, t) => h + sum(t)
+      case _ => 101
+
+      @main def m():Unit =
+        println(result)
 }
