@@ -1,0 +1,5 @@
+package functionalProgrammingScala
+
+object DataSharingFP {
+
+}
