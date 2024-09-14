@@ -32,6 +32,11 @@ object FunctionalDataStructures:
           case Cons(_, t1) => drop(t1, n - 1)
           case Nil         => Nil
 
+    def dropWhile[A](as: List[A], f: A => Boolean): List[A] =
+      as match
+        case Cons(hd, t1) if f(hd) => dropWhile(t1, f)
+        case _                     => as
+
     val result = List(5, 10, 3, 4, 5, 6) match
       case Cons(x, Cons(2, Cons(4, _)))          => x
       case Nil                                   => 42
@@ -40,4 +45,7 @@ object FunctionalDataStructures:
       case _                                     => 101
 
     @main def m(): Unit =
+      val randomList = List(1, 34, 5, 6, 6, 7, 8)
+      println(tail(randomList))
+      println(drop(randomList, 5))
       println(result)
