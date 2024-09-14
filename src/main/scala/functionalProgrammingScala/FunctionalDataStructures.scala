@@ -25,6 +25,13 @@ object FunctionalDataStructures:
       case Cons(_, t1) => t1
       case Nil         => sys.error("tail of the empty list")
 
+    def drop[A](as: List[A], n: Int): List[A] =
+      if n <= 0 then as
+      else
+        as match
+          case Cons(_, t1) => drop(t1, n - 1)
+          case Nil         => Nil
+
     val result = List(5, 10, 3, 4, 5, 6) match
       case Cons(x, Cons(2, Cons(4, _)))          => x
       case Nil                                   => 42
